@@ -1,0 +1,41 @@
+severity	check	location	confidence
+critical	plaintext-password-storage	models/user_model.py:24	heuristic
+critical	plaintext-password-storage	models/user_model.py:85	heuristic
+critical	sql-injection	models/user_model.py:72	confirmed
+medium	debug-mode-enabled	app.py:17	heuristic
+medium	docker-missing-user	Dockerfile:8	heuristic
+medium	gha-unpinned-action	.github/workflows/docker-image.yml:16	heuristic
+medium	gha-unpinned-action	.github/workflows/docker-image.yml:19	heuristic
+medium	gha-unpinned-action	.github/workflows/docker-image.yml:22	heuristic
+medium	gha-unpinned-action	.github/workflows/docker-image.yml:28	heuristic
+low	vulnerable-dependency	requirements.txt:1	1 dipendenza in requirements.txt non è stata controllata perché non è pinnata con "=="
+low	vulnerable-dependency	requirements.txt:2	Dipendenza vulnerabile: flask@2.2.2 (GHSA-68rp-wp8r-4726)
+high	vulnerable-dependency	requirements.txt:2	Dipendenza vulnerabile: flask@2.2.2 (GHSA-m2qf-hxjv-5gpq)
+high	vulnerable-dependency	requirements.txt:2	Dipendenza vulnerabile: flask@2.2.2 (PYSEC-2023-62)
+medium	vulnerable-dependency	requirements.txt:2	Dipendenza vulnerabile: flask@2.2.2 (PYSEC-2026-2151)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-2gx3-rcp4-g85q)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-42vr-xj54-vc7v)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-752w-5fwx-jx9f)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-993g-76c3-p5m4)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-9v7f-9g4p-ffgj)
+critical	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-ffc3-869f-jxw9)
+low	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-fhv5-28vv-h8m8)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-hxm8-2xgr-2p9m)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-jwrc-g2q2-pq5p)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-p4g4-x82p-q773)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-pxh4-856f-4h89)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-x33g-cr3x-6449)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (GHSA-xgmm-8j9v-c9wx)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2025-183)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-120)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-175)
+low	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-177)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-179)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-4140)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-4141)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-4144)
+critical	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-4145)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-4147)
+medium	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-4148)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-4149)
+high	vulnerable-dependency	requirements.txt:7	Dipendenza vulnerabile: PyJWT@2.6.0 (PYSEC-2026-4183)

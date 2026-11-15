@@ -1,0 +1,127 @@
+{
+  "repo": {
+    "fullName": "erev0s/VAmPI",
+    "url": "https://github.com/erev0s/VAmPI",
+    "stars": 1352,
+    "license": "MIT",
+    "description": "Vulnerable REST API with OWASP top 10 vulnerabilities for security testing",
+    "commitSha": "f16052dce83f05847133ec98f01c5193a41de7d8"
+  },
+  "generatedAt": "2026-11-15T10:52:47.315Z",
+  "checksCount": 103,
+  "filesAnalyzed": 22,
+  "before": {
+    "score": 9,
+    "summary": {
+      "critical": 5,
+      "high": 13,
+      "medium": 18,
+      "low": 4
+    }
+  },
+  "after": {
+    "score": 9,
+    "summary": {
+      "critical": 5,
+      "high": 13,
+      "medium": 18,
+      "low": 4
+    }
+  },
+  "autofix": {
+    "filesChanged": 0,
+    "fixedCheckIds": []
+  },
+  "highlights": [
+    {
+      "checkId": "sql-injection",
+      "severity": "critical",
+      "title": {
+        "it": "Un valore inserito dall'utente viene incollato direttamente dentro una query al database",
+        "en": "A value entered by the user is pasted directly into a database query"
+      },
+      "why": {
+        "it": "Una query SQL è costruita concatenando o interpolando direttamente una stringa invece di usare parametri. Se quel testo arriva (anche indirettamente) da un utente, può alterare la query stessa — SQL injection.",
+        "en": "A SQL query is built by concatenating or interpolating a string directly instead of using parameters. If that text comes (even indirectly) from a user, it can alter the query itself — SQL injection."
+      },
+      "file": "models/user_model.py",
+      "line": 72,
+      "fixed": false,
+      "codeBefore": "        if vuln:  # SQLi Injection\n            user_query = f\"SELECT * FROM users WHERE username = '{username}'\"\n            query = db.session.execute(text(user_query))",
+      "codeAfter": null
+    },
+    {
+      "checkId": "plaintext-password-storage",
+      "severity": "critical",
+      "title": {
+        "it": "Le password sembrano non essere protette",
+        "en": "Passwords don't seem to be protected"
+      },
+      "why": {
+        "it": "Un campo password viene salvato così com'è arrivato dalla richiesta, e nel file non compare nessuna funzione di hashing (bcrypt, argon2, scrypt). Se il database viene compromesso, tutte le password sono immediatamente utilizzabili.",
+        "en": "A password field is saved exactly as it arrived in the request, and no hashing function (bcrypt, argon2, scrypt) appears in the file. If the database is compromised, every password is immediately usable."
+      },
+      "file": "models/user_model.py",
+      "line": 24,
+      "fixed": false,
+      "codeBefore": "        self.email = email\n        self.password = password\n        self.admin = admin",
+      "codeAfter": null
+    },
+    {
+      "checkId": "gha-unpinned-action",
+      "severity": "medium",
+      "title": {
+        "it": "Un'azione di terze parti nella CI non è bloccata su una versione precisa (commit SHA)",
+        "en": "A third-party CI action isn't pinned to a precise version (commit SHA)"
+      },
+      "why": {
+        "it": "Il workflow usa un'azione di terze parti referenziata per tag o branch (es. \"@v1\", \"@main\") invece che per commit SHA. Chi la mantiene — o chi ne compromette l'account — può spostare quel riferimento su un commit diverso in qualsiasi momento, cambiando silenziosamente cosa gira nella CI, con accesso ai suoi segreti. Un commit SHA punta sempre allo stesso identico codice.",
+        "en": "The workflow uses a third-party action referenced by tag or branch (e.g. \"@v1\", \"@main\") instead of by commit SHA. Whoever maintains it — or whoever compromises their account — can move that reference to a different commit at any time, silently changing what runs in the CI, with access to its secrets. A commit SHA always points to the exact same code."
+      },
+      "file": ".github/workflows/docker-image.yml",
+      "line": 16,
+      "fixed": false,
+      "codeBefore": "        name: Set up QEMU\n        uses: docker/setup-qemu-action@v2\n      -",
+      "codeAfter": null
+    }
+  ],
+  "remaining": [
+    {
+      "checkId": "plaintext-password-storage",
+      "severity": "critical",
+      "count": 2,
+      "title": {
+        "it": "Le password sembrano non essere protette",
+        "en": "Passwords don't seem to be protected"
+      }
+    },
+    {
+      "checkId": "vulnerable-dependency",
+      "severity": "critical",
+      "count": 2,
+      "title": {
+        "it": "Dipendenze con vulnerabilità note (da aggiornare)",
+        "en": "Dependencies with known vulnerabilities (to upgrade)"
+      }
+    },
+    {
+      "checkId": "sql-injection",
+      "severity": "critical",
+      "count": 1,
+      "title": {
+        "it": "Un valore inserito dall'utente viene incollato direttamente dentro una query al database",
+        "en": "A value entered by the user is pasted directly into a database query"
+      }
+    },
+    {
+      "checkId": "vulnerable-dependency",
+      "severity": "high",
+      "count": 13,
+      "title": {
+        "it": "Dipendenze con vulnerabilità note (da aggiornare)",
+        "en": "Dependencies with known vulnerabilities (to upgrade)"
+      }
+    }
+  ],
+  "dependencyScanComplete": true
+}
